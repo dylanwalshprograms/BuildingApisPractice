@@ -1,6 +1,7 @@
 package grandcircus.co.ApiPractice;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class MovieApiController {
 	private MovieDao repo;
 	
 	@GetMapping("/movies")
-	List<Movie> all(@RequestParam(value = "category", required = false) String category, @RequestParam(value = "title", required = false) String title) {
+	List<Movie> all() {
 		
 		return repo.findAll();
 	}
@@ -57,7 +58,7 @@ public class MovieApiController {
 		
 	}
 	@GetMapping("movies/categories")
-	List<Object> allCategories() {
+	Set<Object> allCategories() {
 		
 		return repo.findCategories();
 	}

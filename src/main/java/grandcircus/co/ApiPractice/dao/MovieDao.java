@@ -1,6 +1,7 @@
 package grandcircus.co.ApiPractice.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,6 +25,6 @@ public interface MovieDao extends JpaRepository <Movie, Long>{
 	List<Movie> findRandomList(@Param("size") Long size);
 	
 	@Query(nativeQuery=true, value="SELECT category FROM movies;")
-	List<Object> findCategories();
+	Set<Object> findCategories();
 
 }
